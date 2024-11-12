@@ -21,4 +21,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
   // Optional: Close the menu if the overlay itself is clicked
   mobileBodyOverlay.addEventListener("click", toggleMobileMenu);
+
+  // Add event listener to the close icon (the element with the "nav-close" class)
+  const closeIcon = document.querySelector(".nav-close");
+  if (closeIcon) {
+    closeIcon.addEventListener("click", toggleMobileMenu);
+  }
 });
