@@ -1401,11 +1401,11 @@
         border-radius: 4px;
         position: relative;
         overflow: hidden;
-        background-image: url(/assets/img/landing/zigzag.svg),
-          url(/assets/img/landing/zigzag.svg),
-          url(/assets/img/landing/zigzag.svg),
-          url(/assets/img/landing/zigzag.svg),
-          url(/assets/img/landing/zigzag.svg);
+        background-image: url("./assets/img/landing/zigzag.svg"),
+          url("./assets/img/landing/zigzag.svg"),
+          url("./assets/img/landing/zigzag.svg"),
+          url("./assets/img/landing/zigzag.svg"),
+          url("./assets/img/landing/zigzag.svg");
         background-position: left bottom -25px, 0 100%, left bottom 25px,
           left bottom 50px, left bottom 75px;
         background-repeat: no-repeat;
@@ -1690,11 +1690,11 @@
           margin-bottom: 20px;
           background-color: #fff;
           box-shadow: 0 4px 20px rgba(79, 136, 235, 0.1);
-          background-image: url(/assets/img/landing/zigzag.svg),
-            url(/assets/img/landing/zigzag.svg),
-            url(/assets/img/landing/zigzag.svg),
-            url(/assets/img/landing/zigzag.svg),
-            url(/assets/img/landing/zigzag.svg);
+          background-image: url("./assets/img/landing/zigzag.svg"),
+            url("./assets/img/landing/zigzag.svg"),
+            url("./assets/img/landing/zigzag.svg"),
+            url("./assets/img/landing/zigzag.svg"),
+            url("./assets/img/landing/zigzag.svg");
           background-position: left bottom -25px, 0 100%, left bottom 25px,
             left bottom 50px, left bottom 75px;
           background-repeat: no-repeat;
@@ -1797,7 +1797,7 @@
         padding-left: 30px;
       }
       .reports-list[_ngcontent-b2b-c98] div[_ngcontent-b2b-c98]:before {
-        content: url(/assets/img/report-check.svg);
+        content: url("./assets/img/report-check.svg");
         position: absolute;
         top: 22px;
         left: 0;
@@ -2891,7 +2891,7 @@
         cursor: pointer;
       }
       .footer[_ngcontent-b2b-c98] .footer-link[_ngcontent-b2b-c98]:before {
-        content: url(/assets/img/landing/rectangle.svg);
+        content: url("./assets/img/landing/rectangle.svg");
         position: absolute;
         left: 0;
       }
@@ -2971,7 +2971,7 @@
       }
       @media (max-width: 767px) {
         .footer[_ngcontent-b2b-c98] {
-          background: url(/assets/img/landing-new/footer-bg.png) top no-repeat;
+          background: url("./assets/img/landing-new/footer-bg.png") top no-repeat;
           background-size: 100% 100%;
         }
         .footer-link[_ngcontent-b2b-c98] {
@@ -3116,18 +3116,18 @@
       }
       .mobile-header[_ngcontent-b2b-c86]
         .contact-info-link-planner[_ngcontent-b2b-c86]:before {
-        background: url(/assets/img/side-menu/sidemenu-planner.svg) no-repeat;
+        background: url("./assets/img/side-menu/sidemenu-planner.svg") no-repeat;
         background-size: contain;
       }
       .mobile-header[_ngcontent-b2b-c86]
         .contact-info-link-recommendation[_ngcontent-b2b-c86]:before {
-        background: url(/assets/img/side-menu/sidemenu-optimization.svg)
+        background: url("./assets/img/side-menu/sidemenu-optimization.svg")
           no-repeat;
         background-size: contain;
       }
       .mobile-header[_ngcontent-b2b-c86]
         .contact-info-link-alerts[_ngcontent-b2b-c86]:before {
-        background: url(/assets/img/side-menu/sidemenu-alert.svg) no-repeat;
+        background: url("./assets/img/side-menu/sidemenu-alert.svg") no-repeat;
         background-size: contain;
       }
     </style>
@@ -4794,7 +4794,7 @@
         padding-left: 30px;
       }
       .reports-list[_ngcontent-b2b-c144] div[_ngcontent-b2b-c144]:before {
-        content: url(/assets/img/report-check.svg);
+        content: url("./assets/img/report-check.svg");
         position: absolute;
         top: 22px;
         left: 0;
@@ -5889,7 +5889,7 @@
         position: relative;
       }
       .free-access-security-block-list-text[_ngcontent-b2b-c144]:before {
-        content: url(/assets/img/report-check.svg);
+        content: url("./assets/img/report-check.svg");
         position: absolute;
         top: 0;
         left: 0;
@@ -8478,15 +8478,17 @@
       );
       const preInput = document.querySelector(".pre-input-1");
 
-      // Update the orange bar width on input change
-      rangeInput.addEventListener("input", () => {
-        // Calculate the width as a percentage of the range's max value
+      // Function to update the orange bar width based on range input
+      function updateOrangeBarWidth() {
         const percentage =
           ((rangeInput.value - rangeInput.min) /
             (rangeInput.max - rangeInput.min)) *
           100;
         preInput.style.width = `${percentage}%`;
-      });
+      }
+
+      // Update the orange bar width on input change
+      rangeInput.addEventListener("input", updateOrangeBarWidth);
 
       document.addEventListener("DOMContentLoaded", function () {
         const spendingSlider = document.querySelector(
@@ -8506,10 +8508,11 @@
           revenueValue.textContent = `~ $${revenue.toLocaleString()}`;
         }
 
-        // Initial update on page load
+        // Initial update on page load for both values and orange bar width
         updateValues();
+        updateOrangeBarWidth(); // Initialize orange bar width
 
-        // Update values when the slider is moved
+        // Update values and bar width when the slider is moved
         spendingSlider.addEventListener("input", updateValues);
       });
     </script>
